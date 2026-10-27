@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>购物车 - 一杯</title>
+  <meta name="description" content="确认数量、添加备注、查看满减优惠并提交订单。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧋</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+
+  <div class="promo">
+    <div class="app-container">
+      <span>🧋 新店开业：满 <b>20</b> 减 <b>3</b></span>
+      <span>提交后到吧台报取餐号</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="app-container">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">🧋</span>
+        <span>一杯<small>校园奶茶点单</small></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">点单</a>
+        <a href="history.html">订单</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <a class="cart-btn" href="cart.html" aria-label="购物车">
+        🛒<span class="cart-badge js-cart-badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="app-container page cart-page">
+    <div class="cart-page-inner">
+
+      <div class="page-head">
+        <h1>购物车</h1>
+        <p class="sub">确认口味和数量，提交后到吧台报取餐号即可</p>
+      </div>
+
+      <div id="cartList"></div>
+
+      <label class="sub" for="noteInput" style="display:block;margin:18px 0 8px">备注（选填）</label>
+      <textarea class="note-box" id="noteInput" placeholder="例如：少放冰块、分两个袋子、到店再联系"></textarea>
+
+      <div id="cartTotals" style="margin-top:16px"></div>
+    </div>
+
+    <div class="checkout-bar">
+      <div class="checkout-inner">
+        <div class="sum">
+          <b id="checkoutSum">¥0</b>
+          <span id="checkoutHint">还没选饮品</span>
+        </div>
+        <button class="btn btn-primary" id="btnCheckout">提交订单</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="app-container">
+      <span>© <span class="js-year">2026</span> 一杯 · 校园奶茶点单</span>
+      <span>课程作业演示 · 所有饮品与价格均为虚构</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

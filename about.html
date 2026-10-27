@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>关于本站 - 一杯</title>
+  <meta name="description" content="一杯的点单目的、功能清单、技术实现与考核点对照。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧋</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+
+  <div class="promo">
+    <div class="app-container">
+      <span>📄 这一页说明<b>设计目的</b>与<b>技术实现</b></span>
+      <span>方便老师查看思路</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="app-container">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">🧋</span>
+        <span>一杯<small>校园奶茶点单</small></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">点单</a>
+        <a href="history.html">订单</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <a class="cart-btn" href="cart.html" aria-label="购物车">
+        🛒<span class="cart-badge js-cart-badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="app-container page">
+    <div style="max-width:720px;margin:0 auto">
+
+      <div class="page-head">
+        <h1>关于「一杯」</h1>
+        <p class="sub">校园奶茶线上点单 · 纯前端实现 · 不需要注册登录</p>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>一、为什么要做这个网站</h2></div>
+        <div class="prose">
+          <p>下课高峰的奶茶店门口总是排着两列人：一列在犹豫点什么，一列在等前面的犹豫。</p>
+          <p>口头点单还容易出错：三分糖说成五分糖、大杯说成中杯，做错了双方都麻烦。
+            对店里来说，队伍堵在收银台，出杯速度也被拖住。</p>
+          <p><b>「一杯」想解决的就是这两件事：</b>把菜单、规格、价格和优惠都放在手机上，
+            同学在走向店里的路上就能选好；提交后系统给出取餐号，到店直接报号取餐，
+            不用挤在收银台前重复一遍自己的口味。</p>
+          <p>这个网站是按手机竖屏设计的，也可以用 iPad 打开；在电脑上会自动变成
+            「左边菜单、右边购物车」的两栏布局。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>二、功能清单</h2></div>
+        <div class="prose">
+          <p><b>点单：</b>分类切换、饮品卡片、快捷加购（默认中杯少冰五分糖）。</p>
+          <p><b>详情：</b>杯型、冰量、甜度单选，加料多选，单价实时重算。</p>
+          <p><b>购物车：</b>数量增减、删除、备注、满 20 减 3、合计与提交。</p>
+          <p><b>下单：</b>生成取餐号与等待时间，订单写入本机历史记录。</p>
+          <p><b>订单：</b>历史订单列表，含单号、时间、商品摘要与实付金额。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>三、技术实现说明</h2></div>
+        <div class="prose">
+          <p><b>技术栈：</b>HTML5 + CSS3 + 原生 JavaScript（ES6），不用框架、不用第三方库，
+            双击 <code>index.html</code> 即可运行。</p>
+          <p><b>购物车模型：</b>每一行由「饮品编号 + 杯型 + 冰量 + 糖度 + 加料（排序后）」拼成唯一键。
+            规格完全相同的商品会合并数量，规格不同的会单独成行，这是价格计算不出错的关键。</p>
+          <p><b>价格计算：</b>单价 = 基础价 + 杯型加价 + 所有加料价格；
+            合计再看是否满足满 20 减 3，优惠在购物车与结算条上同步显示。</p>
+          <p><b>本地存储：</b>购物车、历史订单、最近一单分别存在 localStorage 里，
+            刷新页面和切换页面都不会丢；读写都做了异常处理，禁用存储时退回内存。</p>
+          <p><b>响应式：</b>移动端是固定底部结算条，宽屏下自动变成右侧购物车面板；
+            所有可点区域不小于 44px，并处理了刘海屏的底部安全区。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>四、功能与考核点对照</h2></div>
+        <table class="map-table">
+          <thead>
+            <tr><th>考核点</th><th>本站对应的实现</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>设计目的</td><td>校园奶茶线上点单，解决排队和口头点单容易报错口味的问题</td></tr>
+            <tr><td>跳转</td><td>点单 → 详情 → 购物车 → 下单成功 → 我的订单，形成闭环；导航、返回菜单、页脚齐全</td></tr>
+            <tr><td>交互</td><td>分类筛选、规格单选、加料多选、实时算价、购物车增删、满减判断、下单出号、历史订单</td></tr>
+            <tr><td>CSS</td><td>设计变量、Grid 卡片、渐变饮品图、悬浮结算条、桌面两栏、手机安全区适配</td></tr>
+            <tr><td>整体效果</td><td>米白 + 焦糖的暖色点单界面、状态反馈清晰、空状态完整</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>五、作者与声明</h2></div>
+        <div class="prose">
+          <p>课程：Web 前端技术上机作业　|　作者：
+            <span class="tag tag-hot">请在这里填写你的姓名 / 学号 / 班级</span></p>
+          <p>本站为课程作业演示项目，饮品、价格与取餐号均为虚构，不构成真实交易。</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="app-container">
+      <span>© <span class="js-year">2026</span> 一杯 · 校园奶茶点单</span>
+      <span>课程作业演示 · 所有饮品与价格均为虚构</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

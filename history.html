@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>我的订单 - 一杯</title>
+  <meta name="description" content="查看在这台设备上下过的奶茶订单。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧋</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="history">
+
+  <div class="promo">
+    <div class="app-container">
+      <span>🧾 订单只保存在这台设备的浏览器里</span>
+      <span>换设备就看不到了</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="app-container">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">🧋</span>
+        <span>一杯<small>校园奶茶点单</small></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">点单</a>
+        <a href="history.html">订单</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <a class="cart-btn" href="cart.html" aria-label="购物车">
+        🛒<span class="cart-badge js-cart-badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="app-container page">
+    <div style="max-width:620px;margin:0 auto">
+      <div class="page-head">
+        <h1>我的订单</h1>
+        <p class="sub">最近下的单都记在这里，最多保留本机记录</p>
+      </div>
+      <div id="historyList"></div>
+      <div style="text-align:center;margin-top:20px">
+        <a class="btn btn-primary" href="index.html">再来一杯</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="app-container">
+      <span>© <span class="js-year">2026</span> 一杯 · 校园奶茶点单</span>
+      <span>课程作业演示 · 所有饮品与价格均为虚构</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
